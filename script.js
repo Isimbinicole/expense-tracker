@@ -1,3 +1,9 @@
+// Set max date to today
+document.addEventListener("DOMContentLoaded", () => {
+  const today = new Date().toISOString().split("T")[0];
+  document.getElementById("date").setAttribute("max", today);
+});
+
 const form = document.getElementById('expense-form');
 const list = document.getElementById('expense-list');
 const balanceEl = document.getElementById('balance');
@@ -36,7 +42,20 @@ function addExpense(e) {
   const desc = document.getElementById('description').value;
   const amt = parseFloat(document.getElementById('amount').value);
   const date = document.getElementById('date').value;
-  if (!desc || isNaN(amt) || !date) return;
+
+  if (!desc || isNaN(amt) || amt < 0 || !date) {
+    alert("Please fill all fields with valid data.");
+    return;
+  }
+
+  const selectedDate = new Date(date);
+  const todayDate = new Date();
+  todayDate.setHours(0, 0, 0, 0); // Remove time part
+
+  if (selectedDate > todayDate) {
+    alert("Future dates are not allowed.");
+    return;
+  }
 
   expenses.push({ description: desc, amount: amt, date });
   form.reset();
