@@ -15,7 +15,8 @@
     <section class="form-section">
       <form id="expense-form">
         <input type="text" id="description" placeholder="Description" required />
-        <input type="number" id="amount" placeholder="Amount" required />
+        <!-- <input type="number" id="amount" placeholder="Amount" required /> -->
+        <input type="number" id="amount" placeholder="Amount" required min="0" />
         <input type="date" id="date" required />
         <button type="submit">Add Expense</button>
       </form>
