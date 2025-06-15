@@ -51,7 +51,7 @@ input, button {
 }
 
 .expense-item.income {
-  border-color: green;
+  border-color: #4CAF50;
 }
 
 .expense-item.expense {
