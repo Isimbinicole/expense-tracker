@@ -12,20 +12,35 @@
   </header>
 
   <main>
+    <!-- Form Section -->
     <section class="form-section">
       <form id="expense-form">
         <input type="text" id="description" placeholder="Description" required />
-        <!-- <input type="number" id="amount" placeholder="Amount" required /> -->
         <input type="number" id="amount" placeholder="Amount" required min="0" />
-        <input type="date" id="date" required />
+        <input type="date" id="date" required max="" />
         <button type="submit">Add Expense</button>
       </form>
     </section>
 
+    <!-- Balance -->
     <section class="balance-section">
       <h2>Total Balance: <span id="balance">0</span></h2>
     </section>
 
+    <!-- Filter -->
+    <section class="filter-section">
+      <h3>Filter by Amount</h3>
+      <label>
+        Min Amount: <input type="number" id="filter-min" min="0" />
+      </label>
+      <label>
+        Max Amount: <input type="number" id="filter-max" min="0" />
+      </label>
+      <button onclick="applyFilters()">Apply Filters</button>
+      <button onclick="resetFilters()">Reset</button>
+    </section>
+
+    <!-- Expense List -->
     <section class="list-section">
       <ul id="expense-list"></ul>
     </section>
